@@ -14,7 +14,6 @@ _events_queue: multiprocessing.Queue = None
 
 @app.route("/alerts", methods=['GET'])
 def get_alerts():
-    content = request.json
     auth = request.headers['auth']
     if auth != 'very-secure-token':
         return "unauthorized", 401
@@ -25,7 +24,7 @@ def get_alerts():
         try:
             event = _events_queue.get_nowait()
 
-            for item in event:
+            for item in event["alerts"]:
                 events.append(item)
         except Exception as _:
             break

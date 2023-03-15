@@ -30,7 +30,7 @@ content-type: application/json
     {
         "param_name": "current",
         "param_units": "H",
-        "param_value": 40
+        "param_value": 400
     },
     {
         "param_name": "temperature",
